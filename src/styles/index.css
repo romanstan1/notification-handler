@@ -18,6 +18,10 @@ div#main {
     font-weight: 400;
     text-align: center;
     margin: 30px 0; }
+  div#main label {
+    margin: 25px 0 0 25px;
+    font-size: 12px;
+    color: #6e7682; }
   div#main input {
     font-family: 'Roboto', sans-serif;
     margin: 5px 20px;
@@ -34,7 +38,7 @@ div#main {
   div#main div.button {
     margin: 5px 20px;
     height: 45px;
-    margin-top: 30px;
+    margin-top: 40px;
     color: white;
     text-align: center;
     line-height: 45px;
