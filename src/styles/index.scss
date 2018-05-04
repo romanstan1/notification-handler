@@ -45,5 +45,9 @@ div#main {
     line-height: 45px;
     border-radius: 3px;
     background: #3d5dc6;
+    cursor:pointer;
+    &:hover {
+      background: #1e3991;
+    }
   }
 }

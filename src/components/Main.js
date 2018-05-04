@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 
 // curl -X POST -H "Authorization: key=AAAAgDqojms:APA91bEpE1orvJ_OGqmcpfrvMphVeL47KDccfy6n226n2Equ8GIamYQeFDYqEv5gMR8oXAZcQH8CkGlOjTVX9Zyj06MVz5LRM8h2ixO_cv84yhlm4HXA4uQbYyXQ6ik1PI8pVSRotsc8" -H "Content-Type: application/json" -d '{
-//   "notification": {
-//     "title": "Success!",
-//     "body": "Your order has been placed",
-//     "icon": "https://vignette.wikia.nocookie.net/logopedia/images/f/fd/Specsavers-logo.png/revision/latest\?cb\=20160721075621",
-//     "click_action": "/index.html"
-//   },
+  // "notification": {
+  //   "title": "Success!",
+  //   "body": "Your order has been placed",
+  //   "icon": "https://vignette.wikia.nocookie.net/logopedia/images/f/fd/Specsavers-logo.png/revision/latest\?cb\=20160721075621",
+  //   "click_action": "/index.html"
+  // },
 //   "to": "/topics/ecomm"
 // }' "https://fcm.googleapis.com/fcm/send"
-
 
 class Main extends Component {
 
@@ -21,25 +20,23 @@ class Main extends Component {
   }
 
   handlePush = () => {
-    fetch('https://fcm.googleapis.com/fcm/send', {
-      method: 'post',
+    const {icon, body, title} = this.state
+    fetch(`https://serene-ocean-70888.herokuapp.com/notification`,
+    {
+      method: "POST",
+      mode: 'cors',
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'key=AAAAgDqojms:APA91bEpE1orvJ_OGqmcpfrvMphVeL47KDccfy6n226n2Equ8GIamYQeFDYqEv5gMR8oXAZcQH8CkGlOjTVX9Zyj06MVz5LRM8h2ixO_cv84yhlm4HXA4uQbYyXQ6ik1PI8pVSRotsc8'
+        'Content-Type': 'application/x-www-form-urlencoded'
       },
-      body: {
-         "to": "/topics/ecomm",
-         "notification": {
-           "title": "Success!",
-           "body": "Your order has been placed",
-           "icon": "https://vignette.wikia.nocookie.net/logopedia/images/f/fd/Specsavers-logo.png/revision/latest\?cb\=20160721075621",
-           "click_action": "/index.html"
-         }
-      }
+      body:"title=" + title + "&body="  + body + "&icon="  + icon
     })
     .then(res => res.json())
-    .then(res => console.log("res",res))
-    .catch(error => console.log("error",error))
+    .then(res => {
+      console.log("res",res)
+    })
+    .catch(error => {
+      console.log("error:  ",error)
+    })
   }
 
   changeTitle = (e) => {
