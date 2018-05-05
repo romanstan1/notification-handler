@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="theme-color" content="#000000">
+  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="assets-manifest.json">
+  <link rel="shortcut icon" href="fav.png">
+  <title>Demo Notifications</title>
+
+  <link href="/static/css/main.c8b1d114.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Tell the browser it's a PWA -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <!-- Tell iOS it's a PWA -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- Make sure theme-color is defined -->
+  <meta name="theme-color" content="#536878">
+
+</head>
+  <body><noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div><script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script>var config={apiKey:"AIzaSyBQ6OuaIln-b36v-_LedcSdcV1yPa26s0c",authDomain:"sedn-877a5.firebaseapp.com",databaseURL:"https://sedn-877a5.firebaseio.com",projectId:"sedn-877a5",storageBucket:"",messagingSenderId:"344160183757"};
+    firebase.initializeApp(config)</script>
+    <script type="text/javascript" src="/static/js/main.3bfef437.js"></script>
+    <script>
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+          // Registration was successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+          // registration failed :(
+          console.log('ServiceWorker registration failed: ', err);
+        }).catch(function(err) {
+          console.log(err)
+        });
+      });
+    } else {
+      console.log('service worker is not supported');
+    }
+  </script>
+  </body></html>
